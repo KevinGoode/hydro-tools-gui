@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><HTML><HEAD><META content="IE=11.0000" http-equiv="X-UA-Compatible">	 
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>Hydro Tools</TITLE>
+
+<LINK href="jquery-ui.css" rel="stylesheet" type="text/css">
+<LINK href="jquery-ui-timepicker-addon.css" rel="stylesheet" type="text/css">
+<LINK href="hydro-tools.css" rel="stylesheet" type="text/css">
+<SCRIPT language="javascript" src="jquery.js" type="text/javascript"></SCRIPT>
+<SCRIPT language="javascript" src="jquery.flot.js" type="text/javascript"></SCRIPT>
+<SCRIPT language="javascript" src="jquery.flot.time.js" type="text/javascript"></SCRIPT>
+<SCRIPT language="javascript" src="jquery.flot.axislabels.js" type="text/javascript"></SCRIPT>
+<script src="jquery-ui.js"></script>
+<script src="jquery-ui-timepicker-addon.js"></script>
+<script src="jquery-ui-sliderAccess.js"></script>
+<script src="main.js"></script>
+ 
+<META name="GENERATOR" content="MSHTML 11.00.9600.17207"></HEAD> 
+<BODY>
+
+
+
+<DIV id="content">
+<table width="900" align="center">
+<tr><td align="center"><DIV id="header"><H2>Hydro Tools</H2></DIV></td></tr>
+</table>
+<br/>
+<table width="900" align="center">
+<tr>
+    <td align="center"><label for="tool">Tool</label></td><td>
+        <select id="tool" style="font-size:12px;width:80px">
+            <option value=1>OCUSF</option>
+        </select>
+    </td>
+</tr>
+<td></td>
+<td></td>
+<td></td>
+<tr>
+<td align="center"><label for="shape">Shape</label></td><td>
+    
+    <select id="shape" style="font-size:12px;width:80px">
+        <option value=1>Circle</option>
+        <option value=2>Rectangle</option>
+        <option value=3>Trapezium</option>
+    </select>
+</td>
+<td align="center"><label for="width">Width</label></td><td><input type="text" id='width' name="Width" value="3.0" style="width:70px"></td>
+<td align="center"><label for="length">Length</label></td><td><input type="text" id='length' name="Length" value="500.0" style="width:70px"></td>
+<td align="center"><label for="manning">Manning</label></td><td><input type="text" id='manning' name="Manning" value="0.015" style="width:70px"></td>
+</tr>
+<tr>
+<td align="center"><label for="shape">Slope</label></td><td><input type="text" id='slope' name="Slope" value="0.0005" style="width:70px"></td>
+<td align="center"><label for="qinit">QInit</label></td><td><input type="text" id='qinit' name="QInit" value="4" style="width:70px"></td>
+<td align="center"><label for="reaches">Reaches</label></td><td><input type="text" id='reaches' name="Reaches" value="10" style="width:70px"></td>
+<td align="center"><label for="iterations">Iterations</label></td><td><input type="text" id='iterations' name="Iterations" value="100" style="width:70px"></td>
+</tr>
+<tr>
+<td align="center"><label for="shape">Upstream</label></td><td>Boundary</td>
+<td align="center"><label for="utype">Type</label></td><td>
+    <select id="utype" style="font-size:12px;width:80px">
+            <option value=1>Flow</option>
+            <option value=2 selected>Depth</option>
+    </select>
+</td>
+<td align="center"><label for="urate">Rate</label></td><td><input type="text" id='urate' name="Rate" value="0" style="width:70px"></td>
+<td align="center"><label for="ufinal">Final</label></td><td><input type="text" id='ufinal' name="Final" value="0" style="width:70px"></td>
+</tr>
+<tr>
+<td align="center"><label for="shape">Downsream</label></td><td>Boundary</td>
+<td align="center"><label for="dtype">Type</label></td><td>
+    <select id="dtype" style="font-size:12px;width:80px">
+            <option value=1 selected>Flow</option>
+            <option value=2>Depth</option>
+    </select>
+</td>
+<td align="center"><label for="drate">Rate</label></td><td><input type="text" id='drate' name="Rate" value="-0.0666" style="width:70px"></td>
+<td align="center"><label for="dfinal">Final</label></td><td><input type="text" id='dfinal' name="Final" value="0.0" style="width:70px"></td>
+</tr>
+<tr><td><input type="button" id="btn_start" value="Start"></td></tr>
+</table>
+<DIV class="demo-container">
+<DIV class="demo-placeholder" id="placeholder"></DIV></DIV>
+
+
+<br/>
+<table width="900" align="center"><tr><td align="center">
+<select id="graphType" style="font-size:18px;">
+<optgroup style="font-size:18px;">
+</optgroup>
+</select>
+</td>
+<td align="center"><input id="animate" type="button" value="Animation" /></td>
+<td align="center"> Animation Iteration:</td>
+<td align="center"><input id="current" readonly="true"/></td>
+</tr>
+</table>
+
+</DIV>
+<DIV id="footer"> Copyright 2020 K. Goode. Powered by Docker
+<img src="docker.png"  height="32" width="32">
+</DIV></BODY></HTML>
