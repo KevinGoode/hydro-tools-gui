@@ -4,6 +4,7 @@ GUI and REST APIS that sit on top of various hydraulic engineering tools. REST A
 
  - [OCUSF](https://github.com/KevinGoode/ocusf)
 
+![Image of hydro-tools-gui](https://github.com/KevinGoode/hydro-tools-gui/blob/master/screenshot.png)
 
 ## Build
 ```console
