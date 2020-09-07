@@ -8,6 +8,7 @@
 FROM nginx:alpine
 RUN apk add --no-cache libc6-compat
 RUN apk add --no-cache g++
+RUN apk add --no-cache make
 RUN apk add --no-cache git
 RUN apk add --no-cache python3
 RUN apk add --no-cache py3-pip
@@ -26,7 +27,7 @@ COPY bin/hydro-tools-gui.sh /bin/hydro-tools-gui.sh
 RUN chmod a+rwx /bin/hydro-tools-gui.sh
 # Get ocusf and build to /ocusf.exe
 RUN git clone https://github.com/KevinGoode/ocusf.git
-RUN g++ ocusf/OCUSF.cpp -o /ocusf/ocusf.exe
+RUN cd ocusf; make
 RUN mkdir -p /ocusf/sims
 RUN chmod a+rwx /ocusf/sims
 # Can only run one service by default in docker so need to wrap REST API and nginx execution inside script

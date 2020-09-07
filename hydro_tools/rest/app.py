@@ -51,9 +51,12 @@ def _write_input_file(inp, filename):
     f.write("OCUSF Input File\n")
     upstream = _get_boundary_conditions(inp["upstream"])
     downstream = _get_boundary_conditions(inp["downstream"])
-    args = (inp["shape"], inp["width"], inp["length"], inp["manning"],
-            inp["slope"], inp["qinit"], upstream, downstream, inp["reaches"], inp["iterations"])
-    f.write("%d %f %f %f %f %f %s %s %d %d\n" % args)
+    f.write("%d %f %f " % (inp["shape"], inp["width"], inp["length"]))
+    if inp["shape"]==3:
+        # If trapezium write angle
+        f.write("%f " % inp["angle"])
+    args = (inp["manning"], inp["slope"], inp["qinit"], upstream, downstream, inp["reaches"], inp["iterations"])
+    f.write("%f %f %f %s %s %d %d\n" % args)
     f.close()
 
 

@@ -24,7 +24,7 @@ OCUSF_POST_SCHEMA = {
         "config": {
             "type": "object",
             "additionalProperties": False,
-            "required": ["shape", "width", "length", "manning", "slope", "qinit", "upstream", "downstream","reaches","iterations"],
+            "required": ["shape", "width", "length", "angle", "manning", "slope", "qinit", "upstream", "downstream","reaches","iterations"],
             "properties": {
                 "shape": {
                     "type": "integer",
@@ -37,6 +37,11 @@ OCUSF_POST_SCHEMA = {
                 "length": {
                     "type": "number",
                     "minimum": 1.0
+                },
+                "angle": {
+                    "type": "number",
+                    "minimum": 1.0,
+                    "maximum": 80.00,
                 },
                 "manning": {
                     "type": "number",

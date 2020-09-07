@@ -21,6 +21,19 @@ function initialiseElements(){
    $("#animate").click(animate)
    $("#btn_start").on('click',startSim);
    $('#graphType').change(displaySelectedGraph);
+   $('#shape').change(changedShape);
+   changedShape();
+}
+function changedShape(){
+   var shape = parseInt($('#shape').val());
+   if (shape==3){
+      //Trapezium
+      $('#sideAngle').show();
+      $('#sideAngleLabel').show();
+   }else{
+      $('#sideAngle').hide();
+      $('#sideAngleLabel').hide();
+   }
 }
 function animate(){
    $("#btn_start").attr("disabled", true);
@@ -68,6 +81,7 @@ function startSim(){
         data.config.shape=parseInt($('#shape').val());
         data.config.width=parseFloat($('#width').val());
         data.config.length=parseFloat($('#length').val());
+        data.config.angle=parseFloat($('#angle').val());
         data.config.manning=parseFloat($('#manning').val());
         data.config.slope=parseFloat($('#slope').val());
         data.config.qinit=parseFloat($('#qinit').val());
@@ -82,10 +96,13 @@ function startSim(){
         $.ajax({url:"rest/ocusf", type: "POST",data: JSON.stringify(data),
                 dataType: 'json',
                 contentType: 'application/json',
-                success:gotGraphData});
+                success:gotOcusfGraphData,
+                error:errorGettingOcusfGraphData});
 }
-
-function gotGraphData(data){
+function errorGettingOcusfGraphData(){
+   alert("SIM FAILED");
+}
+function gotOcusfGraphData(data){
         rawData=data;
         processData(data);
         populateDropDown();
