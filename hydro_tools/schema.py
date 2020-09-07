@@ -40,8 +40,8 @@ OCUSF_POST_SCHEMA = {
                 },
                 "angle": {
                     "type": "number",
-                    "minimum": 1.0,
-                    "maximum": 80.00,
+                    "minimum": 25.0,
+                    "maximum": 89.5,
                 },
                 "manning": {
                     "type": "number",
